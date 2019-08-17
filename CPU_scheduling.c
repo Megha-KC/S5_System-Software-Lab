@@ -83,8 +83,7 @@ int main()
 						{
 							if((p+i)->done==0)
 								break;
-							else
-								i++;
+							i++;
 						}
 					}
 					else
@@ -126,8 +125,7 @@ int main()
 						{
 							if((p+i)->done==0)
 								break;
-							else
-								i++;
+							i++;
 						}
 					}
 					else
