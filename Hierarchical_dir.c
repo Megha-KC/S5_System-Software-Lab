@@ -29,7 +29,7 @@ void ls()
 
 void touch(bool d)
 {
-    printf("Enter filename\n");
+    printf("Enter name of the file or directory to create\n");
     char fname[128];
     scanf("%s", fname);
     struct node *temp = (struct node *)malloc(sizeof(struct node));
