@@ -8,6 +8,7 @@ main()
 	scanf("%d", &max);
 	printf("Enter the no.of requests: ");
 	scanf("%d", &n);
+	printf("Enter the requests: \n");
 	for(i=0; i<n; i++)
 		scanf("%d", &req[i]);
 	printf("Enter the position of head:");
@@ -53,10 +54,10 @@ main()
 						small = p;
 					}
 				}
-				for (i = 0; i < n; i++)
-					printf("%d\n", req[i] );
+				// for (i = 0; i < n; i++)
+				// 	printf("%d\n", req[i] );
 				// printf("Small = %d\n", small);
-				// i=small;
+				i = small;
 				j = i-1;
 				printf("\nHEAD MOVEMENTS:\n");
 				printf("%d->", head);
