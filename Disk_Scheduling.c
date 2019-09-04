@@ -85,7 +85,56 @@ main()
 				printf("Total head movements = %d cylinders\n", tot);
 				break;
 
-		case 3: break;
+		case 3: f = 0;
+				for (i = 0; i < n-1; i++)
+				{
+					p = i;
+					for (j = i+1; j < n; j++)
+					{
+						if(req[j]<req[p])
+						{
+							p = j;
+						}
+					}
+					t = req[i];
+					req[i] = req[p];
+					req[p] = t;
+					if(f==0 && req[p]>=head)
+					{
+						f = 1;
+						small = p;
+					}
+				}
+				// for (i = 0; i < n; i++)
+				// 	printf("%d\n", req[i] );
+				// printf("Small = %d\n", small);
+				i = small;
+				j = 0;
+				printf("\nHEAD MOVEMENTS:\n");
+				printf("%d->", head);
+				prev = head;
+				while(i<n)
+				{
+					tot+=req[i]-prev;
+					prev = req[i];
+					printf("%d->", req[i]);
+					i++;
+				}
+				printf("%d->", max);
+				tot+=max-req[i-1];
+				prev = 0;
+				while(j<small)
+				{
+					tot+= req[j] - prev;
+					prev = req[j];
+					if(j==small-1)
+						printf("%d\n", req[j]);
+					else
+						printf("%d->", req[j]);
+					j++;
+				}
+				printf("Total head movements = %d cylinders\n", tot);
+				break;
 		default: exit(0);
 	}
 }
