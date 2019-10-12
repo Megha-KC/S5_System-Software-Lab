@@ -3,8 +3,8 @@
 
 main()
 {
-  char opcode[10],operand[10],label[10],code[10][10],ch,op[10];
-  int locctr,start,len,i=0,j=0,ml_equ,f;
+  char opcode[10],operand[10],label[10],code[10][10],ch,op[10],ml_equ[2];
+  int locctr,start,len,i=0,j=0,f;
   
   FILE *fp1,*fp2,*fp3,*fp4;
   fp1=fopen("INPUT.DAT","r");//mnemonic code
@@ -39,7 +39,7 @@ main()
     fseek(fp4,0,SEEK_SET);
     while(!feof(fp4))
     {
-      fscanf(fp4,"%s%d",op,&ml_equ);
+      fscanf(fp4,"%s%s",op,ml_equ);
       if(strcmp(opcode,op)==0)//opcode found
       {  
           locctr+=3;
