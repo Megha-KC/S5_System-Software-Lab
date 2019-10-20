@@ -3,10 +3,9 @@
 #include<stdbool.h>
 
 main(){
-    int f;
-    char op[10], ml_equ[10];
-	char a[10],ad[10],label[10],opcode[10],operand[10],symbol[10],ch;
-	int st,diff,i,address,add,len,actual_len,pgm_len,prevaddr,j=0, start = 0;
+
+	char a[10],ad[10],label[10],opcode[10],operand[10],symbol[10],ch,op[10], ml_equ[10];
+	int st,diff,i,address,add,len,actual_len,pgm_len,prevaddr,j=0, start = 0, f;
 	
 	FILE *fp1,*fp2,*fp3,*fp4,*fp5;
 	fp1 = fopen("ASSMLIST.DAT","wb+");//assembly listing
@@ -35,7 +34,6 @@ main(){
 		fprintf(fp1,"\t%s\t%s\t%s\n",label,opcode,operand);//write listing line
 		fprintf(fp4,"H^%s^00%s^00%d\n",label,operand,pgm_len);//write HEADER record to object pgm
 		fscanf(fp3,"%d%s%s%s",&address,label,opcode,operand);//read next input line from intermediate file
-		//st=address;
 		diff = prevaddr-start;
 		fprintf(fp4,"T^00%d^%d",address,diff);//creating single text record
 	}
@@ -67,12 +65,10 @@ main(){
                 break;
             }
         }
-    	printf("Opcode = %s, f = %d\n",opcode,f);
         if(f==0)
         {
 			if(strcmp(opcode,"BYTE")==0)
 			{	
-				printf("%d\t%s\t%s\t%s\t\n", address,label,opcode,operand);
 				fprintf(fp1,"%d\t%s\t%s\t%s\t",address,label,opcode,operand);
 				len=strlen(operand)-3;
 				fprintf(fp4,"^");
@@ -86,7 +82,6 @@ main(){
 			}
 			else if(strcmp(opcode,"WORD")==0)
 			{
-				//len=strlen(operand);
 				//itoa(atoi(operand),a,10);
 				fprintf(fp1,"%d\t%s\t%s\t%s\t00000%s\n",address,label,opcode,operand,operand);
 				fprintf(fp4,"^00000%s",operand);
@@ -99,7 +94,7 @@ main(){
   	}
   fprintf(fp4,"\nE^00%d",start);//write END record -> object pgm
   fprintf(fp1,"%d\t%s\t%s\t%s\n",address,label,opcode,operand);//write last listing line
-  printf("\n Intermediate file is converted into object code");
+  printf("\nIntermediate file is converted into object code");
 
 //display output in console
   printf("\n\nThe contents of Intermediate file:\n\n\t");
