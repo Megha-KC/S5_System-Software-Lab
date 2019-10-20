@@ -9,7 +9,7 @@ main()
   FILE *fp1,*fp2,*fp3,*fp4;
   fp1=fopen("INPUT.DAT","r");//mnemonic code
   fp2=fopen("SYMTAB.DAT","wb+");//SYMTAB
-  fp3=fopen("INERMEDIATE.DAT","wb+");//intermediate file
+  fp3=fopen("INTERMEDIATE.DAT","wb+");//intermediate file
   fp4=fopen("OPTAB.DAT","r");//OPTAB
 
   fscanf(fp1,"%s%s%s",label,opcode,operand);//read the first input line
