@@ -1,0 +1,3 @@
+EX1	&A,&B
+LDA	&A
+STA	&B
