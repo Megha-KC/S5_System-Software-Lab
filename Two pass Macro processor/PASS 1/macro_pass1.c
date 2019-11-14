@@ -24,6 +24,7 @@ main(){
 		}
 		fscanf(f1,"%s%s%s",label,opcode,operand);
 	}
+    fprintf(f3,"%s",opcode);
 	fclose(f1);
 	fclose(f2);
 	fclose(f3);
